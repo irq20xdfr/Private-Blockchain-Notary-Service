@@ -1,0 +1,20 @@
+{
+  "lockfileVersion": 1,
+  "name": "project_2",
+  "description": "Blockchain has the potential to change the way that the world approaches data. Develop Blockchain skills by understanding the data model behind Blockchain by developing your own simplified private blockchain.",
+  "version": "1.0.0",
+  "main": "simpleChain.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bitcoinjs-message": "^2.0.0",
+    "boom": "^7.3.0",
+    "crypto-js": "^3.1.9-1",
+    "hapi": "^18.1.0",
+    "hex2ascii": "0.0.3",
+    "level": "^4.0.0"
+  }
+}

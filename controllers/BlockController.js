@@ -74,7 +74,11 @@ class BlockController {
                 if(!block){
                     throw Boom.notFound("Block not found.");
                 }else{
-                    block.body.star.storyDecoded = hextoascii(block.body.star.story);
+                    //decodes story if star is present
+                    if(block.body.star!=undefined){
+                        block.body.star.storyDecoded = hextoascii(block.body.star.story);
+                    }
+
                     return block;
                 }
             }

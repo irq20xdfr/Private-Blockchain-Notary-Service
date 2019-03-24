@@ -85,8 +85,8 @@ class Blockchain{
               newBlock = new Block("First block in the chain - Genesis block");
           }
 
-          // UTC timestamp
-          newBlock.time = new Date().getTime().toString().slice(0,-3);
+          // UTC timestamp **NOW IT SET THIS UP IN EACH BLOCK**
+          //newBlock.time = new Date().getTime().toString().slice(0,-3);
 
           // Block height, if isGenesisBlock is true, 0 is assigned as heigh since whis block should be the Genesis Block
           newBlock.height = isGenesisBlock ? 0 : self.currentHeight+1;
@@ -101,7 +101,7 @@ class Blockchain{
 
           // Adding block object to chain
           //self.chain.push(newBlock);
-          self.db.addDataToLevelDB(newBlock.height, JSON.stringify(newBlock).toString()).then((addedBlock) => {
+          self.db.addDataToLevelDB(newBlock.height, JSON.stringify(newBlock)).then((addedBlock) => {
               resolve(addedBlock);
           }).catch((err) => { console.log(err);reject(err);});
         });
@@ -247,7 +247,7 @@ class Blockchain{
     _modifyBlock(height, block) {
         let self = this;
         return new Promise( (resolve, reject) => {
-            self.db.addLevelDBData(height, JSON.stringify(block).toString()).then((blockModified) => {
+            self.db.addLevelDBData(height, JSON.stringify(block)).then((blockModified) => {
                 resolve(blockModified);
             }).catch((err) => { console.log(err); reject(err)});
         });
